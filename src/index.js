@@ -227,7 +227,8 @@ Diceware.rollDiceHandler = function(e) {
 	// figure out to do a loop in Bluebird at this time. Ugh.
 	//
 	var items = [];
-	for (int i=0; i<num_dice; i++) { items.push(null); }
+	var i;
+	for (i=0; i<num_dice; i++) { items.push(null); }
 
 	Promise.map(items, function(element) {
 		//
