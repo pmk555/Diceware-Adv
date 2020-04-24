@@ -43,7 +43,7 @@ module.exports.getRandomValue = getRandomValue = function(max) {
 		reject("max can't be less or equal to zero!");
 		return(null);
 	}
-
+	var retval;
 	if (iCanHasGoodCrypto()) {
 
 		Promise.try(function() {
