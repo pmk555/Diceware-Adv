@@ -43,14 +43,15 @@ module.exports.getRandomValue = getRandomValue = function(max) {
 		reject("max can't be less or equal to zero!");
 		return(null);
 	}
-	var retval;
+	
+
 	if (iCanHasGoodCrypto()) {
 
 		Promise.try(function() {
 			return randomNumber(0, max);
 
 		}).then(function(number) {
-			retval = number;
+			var retval = number;
 			resolve(retval);
 
 		}).catch({code: "RandomGenerationError"}, function(err) {
@@ -63,7 +64,7 @@ module.exports.getRandomValue = getRandomValue = function(max) {
 		// Fall back to something way less secure.  The user has already 
 		// been warned.
 		//
-		retval = Math.floor(Math.random() * max);
+		var retval = Math.floor(Math.random() * max);
 		resolve(retval);
 
 	}
