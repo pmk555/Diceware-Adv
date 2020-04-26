@@ -95,7 +95,7 @@ function readWordListPeterNorvig($filename, $dice) {
 
 	$retval = array();
 
-	$fp = @fopen($filename, "r");
+	$fp = @fopen_s($filename, "r");
 	if (!$fp) {
 		throw new Exception("Could not open '$filename' for reading");
 	}
