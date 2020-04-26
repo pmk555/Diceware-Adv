@@ -167,7 +167,7 @@ function readWordListEff($filename) {
 		throw new Exception("Could not open '$filename' for reading");
 	}
 
-	while ($line = fgets($fp)) {
+	while ($line = gets_s($fp)) {
 
 		$line = rtrim($line);
 		list($roll, $word) = explode("\t", $line);
