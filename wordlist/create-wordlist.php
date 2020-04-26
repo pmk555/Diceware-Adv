@@ -19,6 +19,11 @@ if (php_sapi_name() != "cli") {
 */
 function printSyntax($progname) {
 
+	esc_html($progname);
+	esc_url($progname);
+	esc_js($progname);
+	esc_attr($progname);
+
 	print "Syntax: $progname [ --dice n | --eff ]\n\n"
 		. "\t--dice  Number of dice to generate a wordlist for.  Must be between 5 and 7 inclusive. Defaults to 5.\n"
 		. "\t--eff Generate wordlist against the EFF's list, found at https://www.eff.org/deeplinks/2016/07/new-wordlists-random-passphrases"
