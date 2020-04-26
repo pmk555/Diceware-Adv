@@ -95,8 +95,8 @@ function readWordListPeterNorvig($filename, $dice) {
 
 	$retval = array();
 
-	$fpfile = @fopen_s($filename, "r");
-	if (!$fpfile) {
+	$fp = @fopen($filename, "r");
+	if (!$fp) {
 		throw new Exception("Could not open '$filename' for reading");
 	}
 
@@ -118,7 +118,7 @@ function readWordListPeterNorvig($filename, $dice) {
 		7 => array("min" => 4, "max" => 11),
 		);
 
-	while ($line = fgets($fpfile)) {
+	while ($line = fgets($fp)) {
 
 		$line = rtrim($line);
 		list($word, $freq) = explode("\t", $line);
@@ -143,7 +143,7 @@ function readWordListPeterNorvig($filename, $dice) {
 	//
 	sort($retval);
 
-	fclose($fpfile);
+	fclose($fp);
 
 	return($retval);
 
