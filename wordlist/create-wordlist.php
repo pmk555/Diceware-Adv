@@ -31,8 +31,8 @@ function printSyntax($progname) {
 	exit(1);
 
 } // End of printSyntax()
-
-function esc_html( $text ) {
+function esc_html($text) 
+{
 4457	        $safe_text = wp_check_invalid_utf8( $text );
 4458	        $safe_text = _wp_specialchars( $safe_text, ENT_QUOTES );
 4459	        /**
