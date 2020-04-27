@@ -48,7 +48,7 @@ function esc_html( $text ) {
 4469	         */
 4470	        return apply_filters( 'esc_html', $safe_text, $text );
 4471	
-
+}
 /**
 * Parse our arguments.
 *
