@@ -26,13 +26,28 @@ function printSyntax($progname) {
 		. "\n"
 		;
 
-	echo $cmd;
+	print esc_html($cmd);
 
 	exit(1);
 
 } // End of printSyntax()
 
-
+unction esc_html( $text ) {
+4457	        $safe_text = wp_check_invalid_utf8( $text );
+4458	        $safe_text = _wp_specialchars( $safe_text, ENT_QUOTES );
+4459	        /**
+4460	         * Filters a string cleaned and escaped for output in HTML.
+4461	         *
+4462	         * Text passed to esc_html() is stripped of invalid or special characters
+4463	         * before output.
+4464	         *
+4465	         * @since 2.8.0
+4466	         *
+4467	         * @param string $safe_text The text after it has been escaped.
+4468	         * @param string $text      The text prior to being escaped.
+4469	         */
+4470	        return apply_filters( 'esc_html', $safe_text, $text );
+4471	
 
 /**
 * Parse our arguments.
