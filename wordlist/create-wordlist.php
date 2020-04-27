@@ -20,17 +20,23 @@ if (php_sapi_name() != "cli") {
 function printSyntax($progname) {
 
 
-	print "Syntax: $progname [ --dice n | --eff ]\n\n"
+	$cmd =  "Syntax: $progname [ --dice n | --eff ]\n\n"
 		. "\t--dice  Number of dice to generate a wordlist for.  Must be between 5 and 7 inclusive. Defaults to 5.\n"
 		. "\t--eff Generate wordlist against the EFF's list, found at https://www.eff.org/deeplinks/2016/07/new-wordlists-random-passphrases"
 		. "\n"
 		;
 
+	print(esc_XSS($cmd));
+
 	exit(1);
 
 } // End of printSyntax()
 
+function esc_XSS($text)
+{
+	return htmlspecialchars($string, ENT_QUOTES, 'UTF-8');
 
+}
 
 /**
 * Parse our arguments.
