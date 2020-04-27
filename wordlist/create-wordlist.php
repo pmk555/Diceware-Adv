@@ -26,7 +26,7 @@ function printSyntax($progname) {
 		. "\n"
 		;
 
-	print(esc_XSS($cmd));
+	echo esc_XSS($cmd);
 
 	exit(1);
 
