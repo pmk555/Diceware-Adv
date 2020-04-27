@@ -26,17 +26,13 @@ function printSyntax($progname) {
 		. "\n"
 		;
 
-	echo esc_XSS($cmd);
+	echo $cmd;
 
 	exit(1);
 
 } // End of printSyntax()
 
-function esc_XSS($text)
-{
-	return htmlspecialchars($string, ENT_QUOTES, 'UTF-8');
 
-}
 
 /**
 * Parse our arguments.
